@@ -22,6 +22,7 @@ class Audioplayer(QtWidgets.QWidget):
         self.buttonFiles = QtWidgets.QPushButton("files")
         self.baseLayout = QtWidgets.QVBoxLayout(self)
         self.progressBar = QtWidgets.QProgressBar()
+        # self.progressBar.setValue(50)
         self.currentTrack = QtWidgets.QLabel()
         buttonLayout = QtWidgets.QHBoxLayout()
         buttonLayout.addWidget(self.buttonPrev)
@@ -62,6 +63,7 @@ class Audioplayer(QtWidgets.QWidget):
         self.mediaPlayer.setSource(path)
         print(self.mediaPlayer.source())
         self.mediaPlayer.play()
+        print(self.mediaPlayer)
 
     @QtCore.Slot()
     def nextTrack(self, i):
@@ -75,6 +77,7 @@ class Audioplayer(QtWidgets.QWidget):
     @QtCore.Slot()
     def pause(self):
         self.mediaPlayer.pause()
+        print(self.mediaPlayer.position())
 
     @QtCore.Slot()
     def play(self):
